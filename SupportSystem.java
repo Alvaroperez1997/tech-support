@@ -15,7 +15,7 @@ public class SupportSystem
 {
     private InputReader reader;
     private Responder responder;
-    
+
     /**
      * Creates a technical support system.
      */
@@ -39,12 +39,22 @@ public class SupportSystem
         while(!finished) {
             String input = reader.getInput();
 
+
             if(input.toLowerCase().trim().equals("bye")) {
                 finished = true;
             }
             else {
-                String response = responder.generateResponse();
-                System.out.println(response);
+                if (input.contains("tarifa")) {
+                    String response = responder.generateResponse();
+                    while(!response.contains("tarifa")){
+                        response = responder.generateResponse();
+                    }
+                    System.out.println(response);
+                }
+                else{
+                    String response = responder.generateResponse();
+                    System.out.println(response);
+                }
             }
         }
         printGoodbye();
