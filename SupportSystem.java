@@ -39,24 +39,14 @@ public class SupportSystem
         while(!finished) {
             String input = reader.getInput();
 
-
             if(input.toLowerCase().trim().equals("bye")) {
                 finished = true;
             }
             else {
-                if (input.contains("tarifa")) {
-                    String response = responder.generateResponse();
-                    while(!response.contains("tarifa")){
-                        response = responder.generateResponse();
-                    }
-                    System.out.println(response);
-                }
-                else{
-                    String response = responder.generateResponse();
-                    System.out.println(response);
+                String response = responder.generateResponse(input);
+                System.out.println(response);
                 }
             }
-        }
         printGoodbye();
     }
 
